@@ -5,6 +5,8 @@ import CustumButton from '../custom-button/custom-button.component';
 
 import './sign-in.styles.scss';
 
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +49,13 @@ class SignIn extends React.Component {
             required
             handleChange={this.handleChange}
           />
-          <CustumButton type='submit'> Sign in </CustumButton>
+          <div className='buttons'>
+            <CustumButton type='submit'> Sign in </CustumButton>
+            <CustumButton onClick={signInWithGoogle} isGoogleSignIn>
+              {' '}
+              Sign in with Google
+            </CustumButton>
+          </div>
         </form>
       </div>
     );
